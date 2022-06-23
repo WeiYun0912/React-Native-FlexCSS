@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
+import { Target } from "@nandorojo/anchor";
 import React, { useState } from "react";
 import BoxesTemplate from "../helper/BoxesTemplate";
 
@@ -33,33 +33,35 @@ const Layout = ({
   selectedValue,
   setSelectedValue,
 }) => (
-  <View style={{ padding: 10, marginTop: 10 }}>
-    <Text style={styles.title}>{title}</Text>
-    <View style={styles.row}>
-      {values.map((value) => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue == value && styles.buttonSelected,
-          ]}
-        >
-          <Text
+  <Target name="JustifyContent">
+    <View style={{ padding: 10, marginTop: 10 }}>
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.row}>
+        {values.map((value) => (
+          <TouchableOpacity
+            key={value}
+            onPress={() => setSelectedValue(value)}
             style={[
-              styles.buttonLabel,
-              selectedValue == value && styles.buttonSelectedText,
+              styles.button,
+              selectedValue == value && styles.buttonSelected,
             ]}
           >
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
+            <Text
+              style={[
+                styles.buttonLabel,
+                selectedValue == value && styles.buttonSelectedText,
+              ]}
+            >
+              {value}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={[styles.container, { [label]: selectedValue }]}>
+        {children}
+      </View>
     </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
-      {children}
-    </View>
-  </View>
+  </Target>
 );
 
 const styles = StyleSheet.create({
