@@ -5,7 +5,7 @@ import FlexWrap from "./components/FlexWrap";
 import JustifyContent from "./components/JustifyContent";
 import Outline from "./components/Outline";
 import AlignContent from "./components/AlignContent";
-
+import AlignSelf from "./components/AlignSelf";
 export default function App() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -17,6 +17,7 @@ export default function App() {
         <JustifyContent />
         <AlignItems />
         <AlignContent />
+        <AlignSelf />
       </View>
     </ScrollView>
   );

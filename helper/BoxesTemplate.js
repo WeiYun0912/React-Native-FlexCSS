@@ -1,8 +1,23 @@
 import { StyleSheet, View } from "react-native";
 
-export default function BoxesTemplate({ mode, stretch }) {
+export default function BoxesTemplate({
+  mode,
+  stretch,
+  alignSelf,
+  isAlignSelf,
+}) {
   return (
-    <>{mode === "more" ? <MoreBoxes /> : <LessBoxes stretch={stretch} />}</>
+    <>
+      {mode === "more" ? (
+        <MoreBoxes />
+      ) : (
+        <LessBoxes
+          stretch={stretch}
+          alignSelf={alignSelf}
+          isAlignSelf={isAlignSelf}
+        />
+      )}
+    </>
   );
 }
 
@@ -18,12 +33,13 @@ const MoreBoxes = () => (
   </>
 );
 
-const LessBoxes = ({ stretch }) => (
+const LessBoxes = ({ stretch, alignSelf, isAlignSelf }) => (
   <>
     <View
       style={[
         styles.box,
         stretch && styles.stretchBox,
+        isAlignSelf && { ["alignSelf"]: alignSelf },
         { backgroundColor: "#FF9F29" },
       ]}
     ></View>

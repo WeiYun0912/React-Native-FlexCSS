@@ -42,6 +42,14 @@ export default function Outline() {
         >
           <Text style={styles.buttonLabel}>Align Content</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            scrollTo("AlignSelf");
+          }}
+        >
+          <Text style={styles.buttonLabel}>Align Self</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
