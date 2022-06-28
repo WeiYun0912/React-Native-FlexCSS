@@ -6,6 +6,7 @@ import JustifyContent from "./components/JustifyContent";
 import Outline from "./components/Outline";
 import AlignContent from "./components/AlignContent";
 import AlignSelf from "./components/AlignSelf";
+//TBD 結合兩個
 export default function App() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
